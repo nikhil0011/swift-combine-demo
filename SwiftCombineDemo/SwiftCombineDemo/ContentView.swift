@@ -39,9 +39,20 @@ struct ContentView: View {
                 }
             }
             Text("Select an item")
+        }.onAppear(perform: {
+            getCurrencies()
+        })
+    }
+    func getCurrencies() {
+        Network.catalogue { results in
+            switch results {
+            case .success(let data):
+                debugPrint("Currency ", data)
+            case .failure(let error):
+                debugPrint("error in currecny ", error)
+            }
         }
     }
-
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
