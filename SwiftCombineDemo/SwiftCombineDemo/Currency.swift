@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+typealias ExchangeRate = [String: Double]
 // MARK: - Currency
 struct Currency: Codable {
     let result: String
@@ -15,7 +15,7 @@ struct Currency: Codable {
     let timeLastUpdateUTC: String
     let timeNextUpdateUnix: Int
     let timeNextUpdateUTC, baseCode: String
-    let conversionRates: [String: Double]
+    let conversionRates: ExchangeRate
 
     enum CodingKeys: String, CodingKey {
         case result, documentation

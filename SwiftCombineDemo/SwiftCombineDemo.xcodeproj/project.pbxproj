@@ -26,6 +26,11 @@
 		8488BAFF29855F16009E3F44 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BAFE29855F16009E3F44 /* GenericResponse.swift */; };
 		8488BB012985624C009E3F44 /* CurrecnyAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB002985624C009E3F44 /* CurrecnyAPIRouter.swift */; };
 		8488BB03298564EB009E3F44 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB02298564EB009E3F44 /* Currency.swift */; };
+		8488BB1029866982009E3F44 /* ConversionRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB0F29866982009E3F44 /* ConversionRateManager.swift */; };
+		8488BB13298669A1009E3F44 /* ConversionRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB12298669A1009E3F44 /* ConversionRateRepository.swift */; };
+		8488BB1B29866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1929866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift */; };
+		8488BB1C29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1A29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift */; };
+		8488BB1E298693E5009E3F44 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		8488BAFE29855F16009E3F44 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		8488BB002985624C009E3F44 /* CurrecnyAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrecnyAPIRouter.swift; sourceTree = "<group>"; };
 		8488BB02298564EB009E3F44 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		8488BB0F29866982009E3F44 /* ConversionRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRateManager.swift; sourceTree = "<group>"; };
+		8488BB12298669A1009E3F44 /* ConversionRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRateRepository.swift; sourceTree = "<group>"; };
+		8488BB1929866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversionRates+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8488BB1A29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversionRates+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,7 @@
 		8488BABB29854DF1009E3F44 /* SwiftCombineDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8488BB0929866940009E3F44 /* CoreData */,
 				8488BAFC29855F05009E3F44 /* Common */,
 				8488BAEB29854E7D009E3F44 /* Service */,
 				8488BABC29854DF1009E3F44 /* SwiftCombineDemoApp.swift */,
@@ -190,8 +201,44 @@
 			isa = PBXGroup;
 			children = (
 				8488BAFE29855F16009E3F44 /* GenericResponse.swift */,
+				8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		8488BB0929866940009E3F44 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB1429866DEF009E3F44 /* Model */,
+				8488BB112986698B009E3F44 /* Repository */,
+				8488BB0E29866979009E3F44 /* Manager */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8488BB0E29866979009E3F44 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB0F29866982009E3F44 /* ConversionRateManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8488BB112986698B009E3F44 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB12298669A1009E3F44 /* ConversionRateRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		8488BB1429866DEF009E3F44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB1929866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift */,
+				8488BB1A29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,12 +377,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8488BB1B29866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift in Sources */,
 				8488BAC929854DF2009E3F44 /* SwiftCombineDemo.xcdatamodeld in Sources */,
 				8488BAF929855E2D009E3F44 /* URLs.swift in Sources */,
 				8488BAEE29855D25009E3F44 /* NetworkClient.swift in Sources */,
+				8488BB1029866982009E3F44 /* ConversionRateManager.swift in Sources */,
 				8488BAFF29855F16009E3F44 /* GenericResponse.swift in Sources */,
 				8488BAC629854DF2009E3F44 /* Persistence.swift in Sources */,
 				8488BAF729855E07009E3F44 /* APIConfiguration.swift in Sources */,
+				8488BB13298669A1009E3F44 /* ConversionRateRepository.swift in Sources */,
+				8488BB1C29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift in Sources */,
+				8488BB1E298693E5009E3F44 /* UserDefaultHelper.swift in Sources */,
 				8488BAFB29855E6B009E3F44 /* Logger.swift in Sources */,
 				8488BB012985624C009E3F44 /* CurrecnyAPIRouter.swift in Sources */,
 				8488BB03298564EB009E3F44 /* Currency.swift in Sources */,
