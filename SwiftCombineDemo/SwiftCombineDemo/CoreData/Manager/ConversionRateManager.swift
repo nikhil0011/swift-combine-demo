@@ -7,8 +7,6 @@
 
 import Foundation
 struct ConversionRateManager {
-    @UserDefault(#keyPath(rememberMyUserName), defaultValue: false)
-    private var lastUpdateTimeStamp: Int64
 
     private let conversionRepository: ConversionRateRepository = ConversionRateRepository()
     
@@ -38,7 +36,9 @@ struct ConversionRateManager {
             _ = deleteExchangeRate(id: $0.key)
         }
     }
-    func cacheValid() {
-        
+    var isCacheValid: Bool {
+        let currentTime = Date().currentUnixTimeStamp
+        let lastUpdateTime = UserDefaultHelper.instance.lastUpdateTimeStamp
+        return (currentTime - lastUpdateTime) < 18000
     }
 }

@@ -31,6 +31,7 @@
 		8488BB1B29866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1929866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift */; };
 		8488BB1C29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1A29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift */; };
 		8488BB1E298693E5009E3F44 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */; };
+		8488BB2029869BA4009E3F44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1F29869BA4009E3F44 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		8488BB1929866EFA009E3F44 /* CDConversionRates+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversionRates+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8488BB1A29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversionRates+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		8488BB1F29869BA4009E3F44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			children = (
 				8488BAFE29855F16009E3F44 /* GenericResponse.swift */,
 				8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */,
+				8488BB1F29869BA4009E3F44 /* Extensions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				8488BB1029866982009E3F44 /* ConversionRateManager.swift in Sources */,
 				8488BAFF29855F16009E3F44 /* GenericResponse.swift in Sources */,
 				8488BAC629854DF2009E3F44 /* Persistence.swift in Sources */,
+				8488BB2029869BA4009E3F44 /* Extensions.swift in Sources */,
 				8488BAF729855E07009E3F44 /* APIConfiguration.swift in Sources */,
 				8488BB13298669A1009E3F44 /* ConversionRateRepository.swift in Sources */,
 				8488BB1C29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift in Sources */,

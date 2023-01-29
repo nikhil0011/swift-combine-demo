@@ -31,20 +31,19 @@ struct ContentView: View {
         })
     }
     func getCurrencies() {
+        guard !manager.isCacheValid else {
+            debugPrint("Cache is valid")
+            _ = manager.fetchExchangeRate()
+            return
+        }
         Network.catalogue { results in
             switch results {
             case .success(let data):
+                debugPrint("Cache is expired")
                 data.conversionRates.forEach { dict in
                     manager.append(country: dict.key, exchangeRate: dict.value)
                 }
-                
-                sleep(2)
-                
-                let allRates = manager.fetchExchangeRate()
-                debugPrint("Total Coutries available", allRates?.count)
-                allRates?.forEach({ dict in
-                    debugPrint("Exchange Rate for \(dict.key) is \(dict.value)")
-                })
+                UserDefaultHelper.instance.lastUpdateTimeStamp = Date().currentUnixTimeStamp
             case .failure(let error):
                 debugPrint("error in currecny ", error)
             }
