@@ -40,6 +40,7 @@
 		8488BB2F2987B24A009E3F44 /* ExchangeDashboardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB2E2987B24A009E3F44 /* ExchangeDashboardUseCase.swift */; };
 		8488BB322987B3D0009E3F44 /* ExchangeDashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB312987B3D0009E3F44 /* ExchangeDashboardPresenter.swift */; };
 		8488BB362987C3B6009E3F44 /* PreConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB352987C3B6009E3F44 /* PreConfirmationView.swift */; };
+		8488BB3C2987FA99009E3F44 /* AcknowledgeExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		8488BB2E2987B24A009E3F44 /* ExchangeDashboardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDashboardUseCase.swift; sourceTree = "<group>"; };
 		8488BB312987B3D0009E3F44 /* ExchangeDashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDashboardPresenter.swift; sourceTree = "<group>"; };
 		8488BB352987C3B6009E3F44 /* PreConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreConfirmationView.swift; sourceTree = "<group>"; };
+		8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgeExchange.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		8488BABB29854DF1009E3F44 /* SwiftCombineDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8488BB382987FA54009E3F44 /* AcknowledgementPage */,
 				8488BB332987C38D009E3F44 /* PreConfirmation */,
 				8488BB232987B1AE009E3F44 /* ExchangeDashboard */,
 				8488BB0929866940009E3F44 /* CoreData */,
@@ -316,6 +319,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8488BB382987FA54009E3F44 /* AcknowledgementPage */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB392987FA79009E3F44 /* View */,
+			);
+			path = AcknowledgementPage;
+			sourceTree = "<group>";
+		};
+		8488BB392987FA79009E3F44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,6 +486,7 @@
 				8488BB2029869BA4009E3F44 /* Extensions.swift in Sources */,
 				8488BAF729855E07009E3F44 /* APIConfiguration.swift in Sources */,
 				8488BB13298669A1009E3F44 /* ConversionRateRepository.swift in Sources */,
+				8488BB3C2987FA99009E3F44 /* AcknowledgeExchange.swift in Sources */,
 				8488BB1C29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift in Sources */,
 				8488BB2229869D55009E3F44 /* CurrencyView.swift in Sources */,
 				8488BB1E298693E5009E3F44 /* UserDefaultHelper.swift in Sources */,

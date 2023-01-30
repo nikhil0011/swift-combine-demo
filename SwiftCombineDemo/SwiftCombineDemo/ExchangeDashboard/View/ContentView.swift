@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-//    let presenter: ExchangeDashboardPresenter
+//    var dataSource: DataSource? = getData()
     @State private var firstFieldValue = "Field 1"
     @State private var secondFieldValue = "Field 2"
     @State private var thirdFieldValue = ""
@@ -22,7 +22,8 @@ struct ContentView: View {
     let manager = ConversionRateManager()
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
+               
                 HStack {
                     FirstSubView(firstValue: $firstFieldValue, showPicker: $showFirstPicker, pickerData: pickerData).onTapGesture {
                         if showSecondPicker {
@@ -45,11 +46,31 @@ struct ContentView: View {
                         PickerView(list: pickerData2, selectedValue: $secondFieldValue)
                     }
                 }
+               
+                    NavigationLink(destination: PreConfirmationView(data: getData())) {
+                        Text("Calculate")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.orange)
+                            .cornerRadius(5)
+                    }
+                
                 Text(errorString)
             }
         }.onAppear(perform: {
             getCurrencies()
         })
+    }
+    private func getData() -> DataSource {
+        let baseCurrency = pickerData[firstFieldValue] ?? 0.0
+        let targetCurrencyBaseValue = pickerData[secondFieldValue] ?? 0.0
+        let unitCost = targetCurrencyBaseValue/baseCurrency
+        let totalCost = ((Double(thirdFieldValue) ?? 0.0) * unitCost)
+        let dataSource = DataSource()
+        dataSource.baseCurrencyAmount = thirdFieldValue + " " + firstFieldValue
+        dataSource.targetCurrentAmount = "\(totalCost.rounded(toPlaces: 4)) \(secondFieldValue)"
+        dataSource.rate = unitCost
+        return dataSource
     }
     func getCurrencies() {
         guard !manager.isCacheValid else {
@@ -84,20 +105,27 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        ContentView(useCase: <#T##ExchangeDashboardUseCase#>)
-//        //            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+        //            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
 //extension ContentView: ExchangeDashboardPresenterOutput {
 //    func showDashboard(exchangeRate: ExchangeRate) {
 //        pickerData = exchangeRate
 //        pickerData = exchangeRate
 //    }
-//    
+//
 //    func showError(error: GenericResponse) {
 //        errorString = error.localizedDescription
 //    }
 //}
 //
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}

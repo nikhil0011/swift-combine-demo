@@ -10,7 +10,10 @@ struct PickerView: View {
     var list: ExchangeRate
     @Binding var selectedValue: String
     var pickerArray: [(key: String, value: Double)] {
-        Array(list.map { key, value in (key, value)})
+        let list = list.sorted { value1, value2 in
+            value1.key < value2.key
+        }
+        return Array(list.map { key, value in (key, value)})
     }
     var body: some View {
         Picker("", selection: $selectedValue) {
