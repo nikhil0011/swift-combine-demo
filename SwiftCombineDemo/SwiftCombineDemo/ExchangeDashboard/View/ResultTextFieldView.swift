@@ -13,9 +13,12 @@ struct ResultTextFieldView: View {
     var body: some View {
         TextField("Enter value", text: $result)
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-            .border(Color.black, width: 1.0)
+            .frame(minHeight: 44)
+            .font(.title3)
+            .border(Color.black, width: 0.4)
             .foregroundColor(.black)
-            .padding()
+            .padding().padding()
             .keyboardType(.decimalPad)
+            .multilineTextAlignment(.center)
     }
 }

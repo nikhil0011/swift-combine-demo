@@ -9,66 +9,76 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-//    var dataSource: DataSource? = getData()
-    @State private var firstFieldValue = "Field 1"
-    @State private var secondFieldValue = "Field 2"
+    @State private var baseCurrencyValue = "Choose the base country"
+    @State private var targetCurrencyValue = "Choose the target country"
     @State private var thirdFieldValue = ""
-    @State private var showFirstPicker = false
-    @State private var showSecondPicker = false
-    @State private var pickerData2: ExchangeRate = ["PKR": 1, "INR": 80, "AED": 3.65]
-    @State private var pickerData: ExchangeRate = ["USD": 1, "INR": 80, "AED": 3.65]
-    @Environment(\.managedObjectContext) private var viewContext
+    @State private var showBaseCurrencyPicker = false
+    @State private var showTargetCurrencyPicker = false
+    @State private var pickerData2: ExchangeRate = [:]
+    @State private var pickerData: ExchangeRate = [:]
     @State private var errorString: String = ""
     let manager = ConversionRateManager()
     var body: some View {
         NavigationView {
-            VStack(alignment: .center) {
-               
-                HStack {
-                    FirstSubView(firstValue: $firstFieldValue, showPicker: $showFirstPicker, pickerData: pickerData).onTapGesture {
-                        if showSecondPicker {
-                            self.showSecondPicker = false
+            ZStack {
+                VStack(alignment: .center) {
+                    HStack {
+                        BaseCurrencySelectionView(firstValue: $baseCurrencyValue, showPicker: $showBaseCurrencyPicker, pickerData: pickerData).onTapGesture {
+                            if showTargetCurrencyPicker {
+                                self.showTargetCurrencyPicker = false
+                            }
+                        }
+                        TargetCurrencySelectionView(secondValue: $targetCurrencyValue, showPicker: $showTargetCurrencyPicker, pickerData: pickerData2).onTapGesture {
+                            if showBaseCurrencyPicker {
+                                self.showBaseCurrencyPicker = false
+                            }
                         }
                     }
-                    SecondSubView(secondValue: $secondFieldValue, showPicker: $showSecondPicker, pickerData: pickerData2).onTapGesture {
-                        if showFirstPicker {
-                            self.showFirstPicker = false
-                        }
-                    }
-                }
-                .padding()
-                ResultTextFieldView(result: $thirdFieldValue)
-                HStack {
-                    if showFirstPicker {
-                        PickerView(list: pickerData, selectedValue: $firstFieldValue)
-                    }
-                    if showSecondPicker {
-                        PickerView(list: pickerData2, selectedValue: $secondFieldValue)
-                    }
-                }
-               
+                    .padding()
+                    ResultTextFieldView(result: $thirdFieldValue)
                     NavigationLink(destination: PreConfirmationView(data: getData())) {
-                        Text("Calculate")
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.orange)
-                            .cornerRadius(5)
-                    }
+                            Text("Calculate")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(isValidInput ? Color.orange : Color.gray)
+                                .cornerRadius(5)
+                    }.disabled(!isValidInput)
+                    Text(errorString)
+                }
+                if showBaseCurrencyPicker {
+                    PickerView(list: pickerData, isShowing: $showBaseCurrencyPicker, selectedValue: $baseCurrencyValue)
+                        .offset(y: self.showBaseCurrencyPicker ? 0 : UIScreen.main.bounds.height)
+                        .animation(Animation.easeInOut(duration: 1.0), value: showBaseCurrencyPicker)
+                    
+                }
+                if showTargetCurrencyPicker {
+                    PickerView(list: pickerData2, isShowing: $showTargetCurrencyPicker, selectedValue: $targetCurrencyValue)
+                        .offset(y: self.showTargetCurrencyPicker ? 0 : UIScreen.main.bounds.height)
+                        .animation(Animation.easeInOut(duration: 1.0), value: showTargetCurrencyPicker)
+                    
+                }
                 
-                Text(errorString)
             }
         }.onAppear(perform: {
             getCurrencies()
         })
     }
+    private var isValidInput: Bool {
+        guard  (Double(thirdFieldValue) != nil),
+                (pickerData[baseCurrencyValue] != nil),
+                (pickerData[targetCurrencyValue] != nil) else {
+            return false
+        }
+        return true
+    }
     private func getData() -> DataSource {
-        let baseCurrency = pickerData[firstFieldValue] ?? 0.0
-        let targetCurrencyBaseValue = pickerData[secondFieldValue] ?? 0.0
+        let baseCurrency = pickerData[baseCurrencyValue] ?? 0.0
+        let targetCurrencyBaseValue = pickerData[targetCurrencyValue] ?? 0.0
         let unitCost = targetCurrencyBaseValue/baseCurrency
         let totalCost = ((Double(thirdFieldValue) ?? 0.0) * unitCost)
         let dataSource = DataSource()
-        dataSource.baseCurrencyAmount = thirdFieldValue + " " + firstFieldValue
-        dataSource.targetCurrentAmount = "\(totalCost.rounded(toPlaces: 4)) \(secondFieldValue)"
+        dataSource.baseCurrencyAmount = thirdFieldValue + " " + baseCurrencyValue
+        dataSource.targetCurrentAmount = "\(totalCost.rounded(toPlaces: 4)) \(targetCurrencyValue)"
         dataSource.rate = unitCost
         return dataSource
     }
@@ -108,7 +118,6 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        //            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 //extension ContentView: ExchangeDashboardPresenterOutput {
@@ -122,10 +131,3 @@ struct ContentView_Previews: PreviewProvider {
 //    }
 //}
 //
-extension Double {
-    /// Rounds the double to decimal places value
-    func rounded(toPlaces places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
-}

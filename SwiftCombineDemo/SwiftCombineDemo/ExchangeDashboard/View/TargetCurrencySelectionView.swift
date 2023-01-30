@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SecondSubView: View {
+struct TargetCurrencySelectionView: View {
     @Binding var secondValue: String
     @Binding var showPicker: Bool
     var pickerData: ExchangeRate
@@ -16,9 +16,13 @@ struct SecondSubView: View {
             self.showPicker.toggle()
         }) {
             Text(secondValue)
+                .multilineTextAlignment(.center)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-                .border(Color.black, width: 1.0)
+                .border(Color.black, width: 0.4)
                 .foregroundColor(.black)
+                .frame(minHeight: 44)
+                .font(.body)
+                .padding()
         }
     }
 }
