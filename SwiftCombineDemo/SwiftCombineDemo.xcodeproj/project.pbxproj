@@ -32,16 +32,13 @@
 		8488BB1C29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1A29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift */; };
 		8488BB1E298693E5009E3F44 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */; };
 		8488BB2029869BA4009E3F44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB1F29869BA4009E3F44 /* Extensions.swift */; };
-		8488BB2229869D55009E3F44 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB2129869D55009E3F44 /* CurrencyView.swift */; };
 		8488BB272987B1D9009E3F44 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB262987B1D9009E3F44 /* PickerView.swift */; };
 		8488BB292987B1FC009E3F44 /* BaseCurrencySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB282987B1FC009E3F44 /* BaseCurrencySelectionView.swift */; };
 		8488BB2B2987B210009E3F44 /* TargetCurrencySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB2A2987B210009E3F44 /* TargetCurrencySelectionView.swift */; };
 		8488BB2D2987B221009E3F44 /* ResultTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB2C2987B221009E3F44 /* ResultTextFieldView.swift */; };
 		8488BB2F2987B24A009E3F44 /* ExchangeDashboardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB2E2987B24A009E3F44 /* ExchangeDashboardUseCase.swift */; };
-		8488BB322987B3D0009E3F44 /* ExchangeDashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB312987B3D0009E3F44 /* ExchangeDashboardPresenter.swift */; };
 		8488BB362987C3B6009E3F44 /* PreConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB352987C3B6009E3F44 /* PreConfirmationView.swift */; };
 		8488BB3C2987FA99009E3F44 /* AcknowledgeExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */; };
-		8488BB3E298807BD009E3F44 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB3D298807BD009E3F44 /* Picker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,16 +86,13 @@
 		8488BB1A29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversionRates+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8488BB1D298693E5009E3F44 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		8488BB1F29869BA4009E3F44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		8488BB2129869D55009E3F44 /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		8488BB262987B1D9009E3F44 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		8488BB282987B1FC009E3F44 /* BaseCurrencySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCurrencySelectionView.swift; sourceTree = "<group>"; };
 		8488BB2A2987B210009E3F44 /* TargetCurrencySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCurrencySelectionView.swift; sourceTree = "<group>"; };
 		8488BB2C2987B221009E3F44 /* ResultTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTextFieldView.swift; sourceTree = "<group>"; };
 		8488BB2E2987B24A009E3F44 /* ExchangeDashboardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDashboardUseCase.swift; sourceTree = "<group>"; };
-		8488BB312987B3D0009E3F44 /* ExchangeDashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDashboardPresenter.swift; sourceTree = "<group>"; };
 		8488BB352987C3B6009E3F44 /* PreConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreConfirmationView.swift; sourceTree = "<group>"; };
 		8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgeExchange.swift; sourceTree = "<group>"; };
-		8488BB3D298807BD009E3F44 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +156,6 @@
 				8488BAC729854DF2009E3F44 /* SwiftCombineDemo.xcdatamodeld */,
 				8488BAC229854DF2009E3F44 /* Preview Content */,
 				8488BB02298564EB009E3F44 /* Currency.swift */,
-				8488BB3D298807BD009E3F44 /* Picker.swift */,
 			);
 			path = SwiftCombineDemo;
 			sourceTree = "<group>";
@@ -270,7 +263,6 @@
 		8488BB232987B1AE009E3F44 /* ExchangeDashboard */ = {
 			isa = PBXGroup;
 			children = (
-				8488BB302987B3BB009E3F44 /* Presenter */,
 				8488BB252987B1BB009E3F44 /* UseCase */,
 				8488BB242987B1B7009E3F44 /* View */,
 			);
@@ -281,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				8488BABE29854DF1009E3F44 /* ContentView.swift */,
-				8488BB2129869D55009E3F44 /* CurrencyView.swift */,
 				8488BB262987B1D9009E3F44 /* PickerView.swift */,
 				8488BB282987B1FC009E3F44 /* BaseCurrencySelectionView.swift */,
 				8488BB2A2987B210009E3F44 /* TargetCurrencySelectionView.swift */,
@@ -296,14 +287,6 @@
 				8488BB2E2987B24A009E3F44 /* ExchangeDashboardUseCase.swift */,
 			);
 			path = UseCase;
-			sourceTree = "<group>";
-		};
-		8488BB302987B3BB009E3F44 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				8488BB312987B3D0009E3F44 /* ExchangeDashboardPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		8488BB332987C38D009E3F44 /* PreConfirmation */ = {
@@ -481,18 +464,15 @@
 				8488BB2F2987B24A009E3F44 /* ExchangeDashboardUseCase.swift in Sources */,
 				8488BAEE29855D25009E3F44 /* NetworkClient.swift in Sources */,
 				8488BB1029866982009E3F44 /* ConversionRateManager.swift in Sources */,
-				8488BB322987B3D0009E3F44 /* ExchangeDashboardPresenter.swift in Sources */,
 				8488BB2B2987B210009E3F44 /* TargetCurrencySelectionView.swift in Sources */,
 				8488BB272987B1D9009E3F44 /* PickerView.swift in Sources */,
 				8488BAFF29855F16009E3F44 /* GenericResponse.swift in Sources */,
 				8488BAC629854DF2009E3F44 /* Persistence.swift in Sources */,
 				8488BB2029869BA4009E3F44 /* Extensions.swift in Sources */,
-				8488BB3E298807BD009E3F44 /* Picker.swift in Sources */,
 				8488BAF729855E07009E3F44 /* APIConfiguration.swift in Sources */,
 				8488BB13298669A1009E3F44 /* ConversionRateRepository.swift in Sources */,
 				8488BB3C2987FA99009E3F44 /* AcknowledgeExchange.swift in Sources */,
 				8488BB1C29866EFA009E3F44 /* CDConversionRates+CoreDataProperties.swift in Sources */,
-				8488BB2229869D55009E3F44 /* CurrencyView.swift in Sources */,
 				8488BB1E298693E5009E3F44 /* UserDefaultHelper.swift in Sources */,
 				8488BB2D2987B221009E3F44 /* ResultTextFieldView.swift in Sources */,
 				8488BB292987B1FC009E3F44 /* BaseCurrencySelectionView.swift in Sources */,

@@ -10,7 +10,6 @@ import SwiftUI
 struct TargetCurrencySelectionView: View {
     @Binding var secondValue: String
     @Binding var showPicker: Bool
-    var pickerData: ExchangeRate
     var body: some View {
         Button(action: {
             self.showPicker.toggle()

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ResultTextFieldView: View {
     @Binding var result: String
-    
+    let placeholder = "Enter value"
     var body: some View {
-        TextField("Enter value", text: $result)
+        TextField(placeholder, text: $result)
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
             .frame(minHeight: 44)
             .font(.title3)
