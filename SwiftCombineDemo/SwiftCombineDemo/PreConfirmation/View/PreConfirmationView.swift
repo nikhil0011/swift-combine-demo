@@ -10,7 +10,6 @@ import SwiftUI
 struct PreConfirmationView: View {
     @State var timerCounter = 30
     @ObservedObject var data: DataSource
-    @State private var isTimerValid: Bool = true
     
     var body: some View {
         VStack(spacing: 20) {
@@ -19,7 +18,6 @@ struct PreConfirmationView: View {
                 Text("Precedes")
                 Text("\(data.targetCurrentAmount)").font(.largeTitle)
             }
-            
             NavigationLink(destination: AcknowledgeExchange(data: data)) {
                 if timerCounter > 0 {
                     Text("Convert")
@@ -27,7 +25,6 @@ struct PreConfirmationView: View {
                         .padding()
                         .background(Color.orange)
                         .cornerRadius(5)
-
                 }
             }
             TimerView(seconds: $timerCounter)
@@ -39,7 +36,6 @@ class DataSource: ObservableObject {
     @Published var baseCurrencyAmount: String = ""
     @Published var targetCurrentAmount: String = ""
     @Published var rate: Double = 0.0
-
 }
 struct PreConfirmationView_Previews: PreviewProvider {
     static var previews: some View {

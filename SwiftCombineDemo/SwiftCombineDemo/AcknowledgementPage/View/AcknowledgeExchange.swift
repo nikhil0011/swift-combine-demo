@@ -10,10 +10,16 @@ import SwiftUI
 struct AcknowledgeExchange: View {
     @ObservedObject var data: DataSource
     var body: some View {
-        VStack(alignment: .center, spacing: 12) {
-            Text("Great! now you have \(data.targetCurrentAmount) in your account.").font(.headline).multilineTextAlignment(.center)
-            Text("Your Conversion rate was \(data.rate.rounded(toPlaces: 4))").font(.body).multilineTextAlignment(.center)
-        }.padding()
+        NavigationStack {
+            VStack(alignment: .center, spacing: 12) {
+                Text("Great! now you have \(data.targetCurrentAmount) in your account.").font(.headline).multilineTextAlignment(.center)
+                Text("Your Conversion rate was \(data.rate.rounded(toPlaces: 4))").font(.body).multilineTextAlignment(.center)
+            }.padding().navigationBarBackButtonHidden()
+                .toolbar {
+                    Button("Done") {
+                    }
+                }
+        }
     }
 }
 
