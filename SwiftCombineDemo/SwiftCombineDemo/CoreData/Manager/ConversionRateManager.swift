@@ -42,3 +42,4 @@ struct ConversionRateManager {
         return (currentTime - lastUpdateTime) < 18000
     }
 }
+    
