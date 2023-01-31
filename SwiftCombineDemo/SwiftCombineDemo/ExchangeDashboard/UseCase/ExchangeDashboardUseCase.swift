@@ -6,20 +6,24 @@
 //
 
 import Foundation
-protocol ExchangeDashboardUseCaseOutput {
-    func didFetch(data: ExchangeRate)
-    func didSetError(error: GenericResponse)
+protocol ExchangeDashboardUseCaseProtocol {
+    func getCurrencies()
+    func convert(_ baseCurrency: String, _ targetCurrency: String, units: String) -> (Double, Double)
+    var  isValidCache: Bool { get }
+    var listOfExchangeRate: ExchangeRate { get set }
+    var error: GenericResponse { get set }
 }
 
-final class ExchangeDashboardUseCase: ObservableObject {
+final class ExchangeDashboardUseCase: ObservableObject, ExchangeDashboardUseCaseProtocol {
     let manager = ConversionRateManager()
     @Published var listOfExchangeRate: ExchangeRate = [:]
     @Published var error: GenericResponse = .returnPseudoObj()
-
-    init() {
+    var isValidCache: Bool {
+        manager.isCacheValid(Date().currentUnixTimeStamp,
+                                              UserDefaultHelper.instance.lastUpdateTimeStamp)
     }
     func getCurrencies() {
-        guard !manager.isCacheValid(Date().currentUnixTimeStamp, UserDefaultHelper.instance.lastUpdateTimeStamp) else {
+        guard !isValidCache else {
             Logger.log(type: .success, msg: "Exchange rates from local cache fetched")
             listOfExchangeRate = manager.fetchExchangeRate() ?? [:]
             return
