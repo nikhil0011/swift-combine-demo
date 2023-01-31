@@ -31,7 +31,7 @@ Note: We do preserve currencies list with CoreData storage for 5 hours.
 
 ## Tech Stack
 
-**Client:** Swift, iOS
+**Client:** Swift, iOS, SwiftUI, Combine, Core Data
 
 **Server:** REST API
 
