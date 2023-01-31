@@ -39,6 +39,8 @@
 		8488BB2F2987B24A009E3F44 /* ExchangeDashboardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB2E2987B24A009E3F44 /* ExchangeDashboardUseCase.swift */; };
 		8488BB362987C3B6009E3F44 /* PreConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB352987C3B6009E3F44 /* PreConfirmationView.swift */; };
 		8488BB3C2987FA99009E3F44 /* AcknowledgeExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */; };
+		8488BB432989065C009E3F44 /* ConversionRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB422989065C009E3F44 /* ConversionRateManager.swift */; };
+		8488BB46298907BB009E3F44 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488BB45298907BB009E3F44 /* NetworkTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		8488BB2E2987B24A009E3F44 /* ExchangeDashboardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDashboardUseCase.swift; sourceTree = "<group>"; };
 		8488BB352987C3B6009E3F44 /* PreConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreConfirmationView.swift; sourceTree = "<group>"; };
 		8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgeExchange.swift; sourceTree = "<group>"; };
+		8488BB422989065C009E3F44 /* ConversionRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRateManager.swift; sourceTree = "<group>"; };
+		8488BB45298907BB009E3F44 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 		8488BAD129854DF2009E3F44 /* SwiftCombineDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				8488BB40298860BE009E3F44 /* CoreData */,
 				8488BAD229854DF2009E3F44 /* SwiftCombineDemoTests.swift */,
 			);
 			path = SwiftCombineDemoTests;
@@ -319,6 +324,31 @@
 				8488BB3B2987FA99009E3F44 /* AcknowledgeExchange.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8488BB40298860BE009E3F44 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB44298907A1009E3F44 /* Service */,
+				8488BB41298860C7009E3F44 /* Manager */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8488BB41298860C7009E3F44 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB422989065C009E3F44 /* ConversionRateManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8488BB44298907A1009E3F44 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8488BB45298907BB009E3F44 /* NetworkTests.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +520,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8488BB46298907BB009E3F44 /* NetworkTests.swift in Sources */,
+				8488BB432989065C009E3F44 /* ConversionRateManager.swift in Sources */,
 				8488BAD329854DF2009E3F44 /* SwiftCombineDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
