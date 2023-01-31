@@ -18,10 +18,6 @@ struct AcknowledgeExchange: View {
                 Text("Great! now you have \(data.targetCurrentAmount) in your account.").font(.headline).multilineTextAlignment(.center)
                 Text("Your Conversion rate was \(data.rate.rounded(toPlaces: 4))").font(.body).multilineTextAlignment(.center)
             }.padding().navigationBarBackButtonHidden()
-                .toolbar {
-                    Button("Done") {
-                    }
-                }
         }.navigationBarHidden(true)
     }
 }
