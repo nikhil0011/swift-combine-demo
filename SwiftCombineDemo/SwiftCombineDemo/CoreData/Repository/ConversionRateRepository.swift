@@ -37,7 +37,7 @@ struct ConversionRateRepository : ConversionRateRepositoryProtocol {
     }
     private func getItem(byIdentifier id: String) -> CDConversionRates? {
         let fetchRequest = NSFetchRequest<CDConversionRates>(entityName: "CDConversionRates")
-        let predicate = NSPredicate(format: "id==%@", id as CVarArg)
+        let predicate = NSPredicate(format: "country==%@", id as CVarArg)
         fetchRequest.predicate = predicate
         do {
             let result = try PersistentStorage.shared.context.fetch(fetchRequest).first
@@ -66,5 +66,16 @@ struct ConversionRateRepository : ConversionRateRepositoryProtocol {
         }
         PersistentStorage.shared.context.delete(conversionRate)
         return true
+    }
+    func deleteAll() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CDConversionRates")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try PersistentStorage.shared.context.execute(deleteRequest)
+        } catch let error as NSError {
+            // TODO: handle the error
+            Logger.log(type: .info, msg: "Error in deleting all data\(error.localizedDescription)")
+        }
     }
 }

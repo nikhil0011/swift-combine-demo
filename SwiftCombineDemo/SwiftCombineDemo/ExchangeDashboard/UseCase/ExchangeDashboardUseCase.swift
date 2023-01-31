@@ -19,12 +19,12 @@ final class ExchangeDashboardUseCase: ObservableObject {
     init() {
     }
     func getCurrencies() {
-        guard !manager.isCacheValid else {
+        guard !manager.isCacheValid(Date().currentUnixTimeStamp, UserDefaultHelper.instance.lastUpdateTimeStamp) else {
             Logger.log(type: .success, msg: "Exchange rates from local cache fetched")
             listOfExchangeRate = manager.fetchExchangeRate() ?? [:]
             return
         }
-        Network.catalogue { results in
+        Network.exchangeRates { results in
             switch results {
             case .success(let data):
                 Logger.log(type: .success, msg: "Network Request Successfull")

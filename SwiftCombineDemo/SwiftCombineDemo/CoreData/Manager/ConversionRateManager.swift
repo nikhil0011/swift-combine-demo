@@ -31,15 +31,11 @@ struct ConversionRateManager {
         return conversionRepository.delete(id: id)
     }
     func clearAll() {
-        let items = fetchExchangeRate()
-        items?.forEach {
-            _ = deleteExchangeRate(id: $0.key)
-        }
+        conversionRepository.deleteAll()
     }
-    var isCacheValid: Bool {
-        let currentTime = Date().currentUnixTimeStamp
-        let lastUpdateTime = UserDefaultHelper.instance.lastUpdateTimeStamp
+    func isCacheValid(_ currentTime: Int, _ lastUpdateTime: Int) -> Bool {
         return (currentTime - lastUpdateTime) < 18000
     }
+    
 }
     

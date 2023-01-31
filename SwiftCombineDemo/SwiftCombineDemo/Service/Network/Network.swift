@@ -37,7 +37,7 @@ class Network: NetworkClientProtocol {
             }
         }
     }
-    static func catalogue(completion: @escaping HTTPResponse<Currency>) {
+    static func exchangeRates(completion: @escaping HTTPResponse<Currency>) {
         performRequest(CurrecnyAPIRouter.currency, completion: completion)
     }
 }
